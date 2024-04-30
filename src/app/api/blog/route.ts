@@ -17,7 +17,7 @@ export const GET = async (req: Request, res: NextResponse) => {
     await main();
 
     const blogs = await prisma.post.findMany({});
-    console.log(blogs);
+    //console.log(blogs);
     return NextResponse.json({ message: "Success", blogs }, { status: 200 });
   } catch (err) {
   } finally {
@@ -33,6 +33,7 @@ export const POST = async (req: Request, res: NextResponse) => {
     const blog = await prisma.post.create({
       data: { title, content, authorId },
     });
+    return NextResponse.json({ message: "Success", blog }, { status: 200 });
   } catch (err) {
   } finally {
     await prisma.$disconnect();
