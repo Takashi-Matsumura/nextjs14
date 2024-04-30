@@ -16,7 +16,7 @@ export default async function Home() {
   return (
     <div className="w-screen">
       <div className="bg-black text-white p-2 flex items-center justify-center">
-        My Blog
+        My BBS
       </div>
       <div className="h-screen flex flex-col items-center scroll-py-5">
         <h1 className="font-bold text-5xl pt-10">Home</h1>
@@ -34,11 +34,17 @@ export default async function Home() {
         </Link>
         <div className="w-full space-y-4 flex flex-col items-center">
           {blogs.map((blog: BlogType) => (
-            <div className="w-2/3 px-4 py-2 border rounded-lg border-gray-700">
+            <div
+              key={blog.id}
+              className="w-2/3 px-4 py-2 border rounded-lg border-gray-700"
+            >
               <div className="flex justify-between">
                 <h1 className="font-bold text-xl">{blog.title}</h1>
                 <div className="space-x-5">
-                  <Link href="blog/edit" className="border-2 px-2">
+                  <Link
+                    href={`/blog/edit/${blog.id}`}
+                    className="border-2 px-2"
+                  >
                     修正
                   </Link>
                   <button>削除</button>
