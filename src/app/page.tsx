@@ -2,7 +2,7 @@ import Link from "next/link";
 import { BlogType } from "./types";
 
 async function fetchAllBlogs() {
-  const res = await fetch("http://localhost:3000/api", {
+  const res = await fetch("http://localhost:3000/api/blog", {
     cache: "no-store", //SSR
   });
   const data = await res.json();

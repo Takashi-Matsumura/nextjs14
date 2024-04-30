@@ -24,3 +24,17 @@ export const GET = async (req: Request, res: NextResponse) => {
     await prisma.$disconnect();
   }
 };
+
+export const POST = async (req: Request, res: NextResponse) => {
+  try {
+    const { title, content, authorId } = await req.json();
+
+    await main();
+    const blog = await prisma.post.create({
+      data: { title, content, authorId },
+    });
+  } catch (err) {
+  } finally {
+    await prisma.$disconnect();
+  }
+};
