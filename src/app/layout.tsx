@@ -4,6 +4,14 @@ import "./globals.css";
 import Header from "@/components/layouts/header/Header";
 import Footer from "@/components/layouts/footer/Footer";
 
+// Noto_Sans_JP
+import { Noto_Sans_JP } from "next/font/google";
+import clsx from "clsx";
+const notoSansJP = Noto_Sans_JP({
+  subsets: ["latin"],
+  variable: "--font-noto-sans-jp",
+});
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
-      <body className={inter.className}>
+    <html lang="ja" className={clsx(notoSansJP.variable, "font-sans")}>
+      <body>
         <Header style={{ position: "fixed", top: 0, width: "100%" }} />
         <div style={{ paddingTop: "60px", paddingBottom: "60px" }}>
           {children}

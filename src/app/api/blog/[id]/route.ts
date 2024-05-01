@@ -7,6 +7,7 @@ export const GET = async (
   { params }: { params: { id: string } },
   res: NextResponse
 ) => {
+  console.log("params: " + params);
   const id: number = parseInt(params.id);
 
   const blog = await prisma.post.findFirst({ where: { id } });
@@ -28,6 +29,7 @@ export const PUT = async (
   return NextResponse.json({ message: "Success", blog }, { status: 200 });
 };
 
+//使っていないです
 export const DELETE = async (
   req: Request,
   { params }: { params: { id: string } },

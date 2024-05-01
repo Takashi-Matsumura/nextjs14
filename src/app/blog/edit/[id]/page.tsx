@@ -22,6 +22,7 @@ const editBlog = async (
 const getBlogById = async (id: number) => {
   const res = await fetch(`http://localhost:3000/api/blog/${id}`);
   const data = await res.json();
+  console.log(data);
   return data.blog;
 };
 
@@ -46,6 +47,7 @@ const EditPost = ({ params }: { params: { id: number } }) => {
   };
 
   useEffect(() => {
+    console.log(params.id);
     getBlogById(params.id)
       .then((data) => {
         if (titleRef.current && contentRef.current) {
@@ -62,14 +64,8 @@ const EditPost = ({ params }: { params: { id: number } }) => {
     <div>
       <div className="flex flex-col justify-center items-center">
         <div className="w-full py-5 flex items-center justify-between">
-          <Link
-            href="/"
-            className="ml-4 px-2 py-1 border-2 rounded-lg text-gray-800 border-gray-700 bg-gray-100"
-          >
-            戻る
-          </Link>
           <h1 className="text-5xl font-bold flex-grow text-center">
-            Edit Blog
+            edit Blog
           </h1>
         </div>
         <form onSubmit={handleSubmit} className="flex flex-col w-2/3 pb-5">

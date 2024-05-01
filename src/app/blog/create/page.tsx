@@ -20,7 +20,8 @@ const postBlog = async (
   return res.json();
 };
 
-const PostBlog = () => {
+export default async function PostBlog() {
+  //const PostBlog = () => { //アロー関数
   const router = useRouter();
 
   const titleRef = useRef<HTMLInputElement | null>(null);
@@ -60,6 +61,6 @@ const PostBlog = () => {
       </div>
     </div>
   );
-};
+}
 
-export default PostBlog;
+//export default PostBlog;
